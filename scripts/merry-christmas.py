@@ -70,3 +70,17 @@ if __name__ == "__main__":
     duration = int(sys.argv[1]) if len(sys.argv) > 1 else 15  # Default to 60 seconds
     custom_message = sys.argv[2] if len(sys.argv) > 2 else "Merry Christmas"
     saturate_message(duration, custom_message)
+import tkinter as tk
+import os
+
+# Start the Xvfb server
+os.system("Xvfb :99 -screen 0 1024x768x24")
+
+# Set the DISPLAY environment variable
+os.environ["DISPLAY"] = ":99"
+
+# Create a GUI window
+root = tk.Tk()
+label = tk.Label(root, text="Hello, World!")
+label.pack()
+root.mainloop()
